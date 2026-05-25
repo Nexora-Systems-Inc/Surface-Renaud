@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-stone: #2C2B29;
+    --color-stone-mid: #4A4845;
+    --color-stone-light: #7A7774;
+    --color-cream: #F5F2EE;
+    --color-cream-dark: #EDE9E3;
+    --color-warm-white: #FAFAF8;
+    --color-accent: #B8975A;
+    --color-accent-dark: #9A7D48;
+    --color-accent-light: #D4B87A;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    background-color: var(--color-warm-white);
+    color: var(--color-stone);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .font-sans-body {
+    font-family: 'Jost', 'Helvetica Neue', sans-serif;
+  }
+
+  .font-display {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .bg-stone {
+    background-color: var(--color-stone);
+  }
+
+  .bg-cream {
+    background-color: var(--color-cream);
+  }
+
+  .bg-cream-dark {
+    background-color: var(--color-cream-dark);
+  }
+
+  .border-accent {
+    border-color: var(--color-accent);
+  }
+
+  .text-stone {
+    color: var(--color-stone);
+  }
+
+  .text-stone-light {
+    color: var(--color-stone-light);
+  }
+}
