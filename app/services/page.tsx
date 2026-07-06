@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import Contact from "@/components/Contact";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Services | Surface Renaud Inc",
@@ -56,40 +55,16 @@ export default function ServicesPage() {
     <>
       <Navbar />
 
-      {/* Page Hero */}
-      <div className="relative bg-[#2C2B29] pt-40 pb-24 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              #B8975A,
-              #B8975A 1px,
-              transparent 1px,
-              transparent 24px
-            )`,
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 font-sans-body text-white/40 hover:text-[#B8975A] text-xs tracking-widest uppercase mb-10 transition-colors duration-300"
-          >
-            <ArrowLeft size={13} /> Back to Home
-          </Link>
-          <div className="flex items-center gap-4 mb-5">
-            <div className="h-px w-10 bg-[#B8975A]" />
-            <span className="font-sans-body text-[#B8975A] text-[11px] tracking-[0.4em] uppercase">
-              What We Offer
-            </span>
-          </div>
-          <h1 className="font-display text-white text-5xl md:text-6xl font-light leading-tight">
+      <PageHero
+        eyebrow="What We Offer"
+        title={
+          <>
             Our Specialized
             <br />
             <em className="italic text-[#B8975A]">Services</em>
-          </h1>
-        </div>
-      </div>
+          </>
+        }
+      />
 
       {/* Service sections */}
       <main>

@@ -43,9 +43,26 @@ const processSteps = [
   },
 ];
 
+export function ProjectPlannerFormDivider() {
+  return (
+    <div className="pt-4 border-t border-[#EDE9E3]">
+      <div className="flex items-center gap-4 mb-3">
+        <div className="h-px w-10 bg-[#B8975A]" />
+        <span className="font-sans-body text-[#B8975A] text-[11px] tracking-[0.4em] uppercase">
+          Your Project Details
+        </span>
+      </div>
+      <p className="font-sans-body text-[#7A7774] text-sm font-light max-w-xl">
+        Complete the form below when you are ready. All fields marked with an
+        asterisk are required.
+      </p>
+    </div>
+  );
+}
+
 export default function ProjectPlannerIntro() {
   return (
-    <div className="space-y-12 lg:space-y-16 mb-16 lg:mb-20">
+    <div className="space-y-12 lg:space-y-16">
       {/* Introduction */}
       <div className="max-w-2xl">
         <p className="font-sans-body text-[#7A7774] text-base leading-relaxed font-light">
@@ -70,7 +87,7 @@ export default function ProjectPlannerIntro() {
         </div>
       </div>
 
-      {/* Beta notice */}
+      {/* Beta notice — unchanged */}
       <div className="bg-[#2C2B29] p-8 lg:p-10 relative overflow-hidden">
         <div
           className="absolute right-0 top-0 w-1/2 h-full opacity-10"
@@ -95,78 +112,71 @@ export default function ProjectPlannerIntro() {
           </div>
         </div>
       </div>
-
-      {/* Before you begin + What happens next */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-        {/* Checklist */}
-        <div className="bg-[#F5F2EE] border border-[#EDE9E3] p-8 lg:p-10">
-          <h2 className="font-display text-[#2C2B29] text-2xl font-light mb-2">
-            Before You Begin
-          </h2>
-          <p className="font-sans-body text-[#7A7774] text-xs font-light mb-6">
-            Have the following ready — photos can be added in a future update.
-          </p>
-          <ul className="space-y-4">
-            {checklistItems.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <CheckCircle2
-                  size={16}
-                  className="text-[#B8975A] shrink-0 mt-0.5"
-                />
-                <span className="font-sans-body text-[#2C2B29] text-sm font-light">
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* After submission process */}
-        <div className="bg-[#F5F2EE] border border-[#EDE9E3] p-8 lg:p-10">
-          <h2 className="font-display text-[#2C2B29] text-2xl font-light mb-2">
-            What Happens Next
-          </h2>
-          <p className="font-sans-body text-[#7A7774] text-xs font-light mb-6">
-            After you submit, here is what you can expect from our team.
-          </p>
-          <ol className="space-y-5">
-            {processSteps.map((step, index) => (
-              <li key={step.title} className="flex gap-4">
-                <div className="flex flex-col items-center shrink-0">
-                  <div className="w-8 h-8 border border-[#B8975A]/40 flex items-center justify-center">
-                    <step.icon size={14} className="text-[#B8975A]" />
-                  </div>
-                  {index < processSteps.length - 1 && (
-                    <div className="w-px flex-1 bg-[#EDE9E3] mt-2 min-h-[12px]" />
-                  )}
-                </div>
-                <div className="pb-1">
-                  <div className="font-sans-body text-[#2C2B29] text-sm mb-0.5">
-                    {step.title}
-                  </div>
-                  <p className="font-sans-body text-[#7A7774] text-xs leading-relaxed font-light">
-                    {step.description}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </div>
-
-      {/* Form section divider */}
-      <div className="pt-4 border-t border-[#EDE9E3]">
-        <div className="flex items-center gap-4 mb-3">
-          <div className="h-px w-10 bg-[#B8975A]" />
-          <span className="font-sans-body text-[#B8975A] text-[11px] tracking-[0.4em] uppercase">
-            Your Project Details
-          </span>
-        </div>
-        <p className="font-sans-body text-[#7A7774] text-sm font-light max-w-xl">
-          Complete the form below when you are ready. All fields marked with an
-          asterisk are required.
-        </p>
-      </div>
     </div>
+  );
+}
+
+export function ProjectPlannerInfoSection() {
+  return (
+    <section className="relative left-1/2 -translate-x-1/2 w-screen bg-[#F5F2EE] py-16 lg:py-20 mt-12 lg:mt-16">
+      <div className="max-w-4xl mx-auto px-6 lg:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+          {/* Checklist */}
+          <div className="bg-[#FAFAF8] border border-[#EDE9E3] p-8 lg:p-10">
+            <h2 className="font-display text-[#2C2B29] text-2xl font-light mb-2">
+              Before You Begin
+            </h2>
+            <p className="font-sans-body text-[#7A7774] text-xs font-light mb-6">
+              Have the following ready — photos can be added in a future update.
+            </p>
+            <ul className="space-y-4">
+              {checklistItems.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <CheckCircle2
+                    size={16}
+                    className="text-[#B8975A] shrink-0 mt-0.5"
+                  />
+                  <span className="font-sans-body text-[#2C2B29] text-sm font-light">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* After submission process */}
+          <div className="bg-[#FAFAF8] border border-[#EDE9E3] p-8 lg:p-10">
+            <h2 className="font-display text-[#2C2B29] text-2xl font-light mb-2">
+              What Happens Next
+            </h2>
+            <p className="font-sans-body text-[#7A7774] text-xs font-light mb-6">
+              After you submit, here is what you can expect from our team.
+            </p>
+            <ol className="space-y-5">
+              {processSteps.map((step, index) => (
+                <li key={step.title} className="flex gap-4">
+                  <div className="flex flex-col items-center shrink-0">
+                    <div className="w-8 h-8 border border-[#B8975A]/40 flex items-center justify-center">
+                      <step.icon size={14} className="text-[#B8975A]" />
+                    </div>
+                    {index < processSteps.length - 1 && (
+                      <div className="w-px flex-1 bg-[#EDE9E3] mt-2 min-h-[12px]" />
+                    )}
+                  </div>
+                  <div className="pb-1">
+                    <div className="font-sans-body text-[#2C2B29] text-sm mb-0.5">
+                      {step.title}
+                    </div>
+                    <p className="font-sans-body text-[#7A7774] text-xs leading-relaxed font-light">
+                      {step.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
