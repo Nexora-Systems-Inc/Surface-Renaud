@@ -30,7 +30,7 @@ export default function ProjectPlannerPromo() {
                   alt=""
                   width={72}
                   height={72}
-                  className="h-[14px] w-auto shrink-0"
+                  className="h-[28px] w-auto shrink-0"
                 />
                 <span>— Beta</span>
               </span>
