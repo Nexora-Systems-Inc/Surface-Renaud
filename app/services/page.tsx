@@ -44,9 +44,18 @@ const services = [
     description:
       "Step into the beauty of our architectural coatings. Our meticulous craftsmanship and attention to detail create stunning coatings that elevate the visual appeal and protection of interior and exterior surfaces.",
     images: [
-      "https://static.wixstatic.com/media/d833f9_95c3f726dcdb41ac961bdebfd23c1e5c~mv2.webp",
-      "https://static.wixstatic.com/media/d833f9_e132d7007b9a4f23a0a3789cf3374f0c~mv2.jpg",
-      "https://static.wixstatic.com/media/d833f9_b7be906af96843f28f95e1b740669bd5~mv2.webp",
+      {
+        src: "/images/services/coatings/taupe-exterior-trim.webp",
+        alt: "Surface Renaud – taupe architectural coating with stone and white trim detailing",
+      },
+      {
+        src: "/images/services/coatings/modern-grey-wood-stone.webp",
+        alt: "Surface Renaud – modern home with grey coating, wood accents, and stone masonry",
+      },
+      {
+        src: "/images/services/coatings/contemporary-white-wood-cladding.webp",
+        alt: "Surface Renaud – contemporary exterior with white coating and natural wood cladding",
+      },
     ],
   },
 ];
@@ -116,21 +125,33 @@ export default function ServicesPage() {
               </div>
 
               {/* Image grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {service.images.map((img, j) => (
-                  <div
-                    key={j}
-                    className={`overflow-hidden group ${j === 0 ? "col-span-2 row-span-2" : ""}`}
-                  >
-                    <div className={`${j === 0 ? "aspect-square" : "aspect-[4/3]"} overflow-hidden`}>
-                      <img
-                        src={img}
-                        alt={`${service.title} – project ${j + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                {service.images.map((img, j) => {
+                  const src = typeof img === "string" ? img : img.src;
+                  const alt =
+                    typeof img === "string"
+                      ? `${service.title} – project ${j + 1}`
+                      : img.alt;
+                  const isCoatings = service.id === "coatings";
+
+                  return (
+                    <div
+                      key={j}
+                      className={`overflow-hidden group ${j === 0 ? "col-span-2 row-span-2" : ""} ${isCoatings ? "rounded-sm shadow-sm" : ""}`}
+                    >
+                      <div
+                        className={`${j === 0 ? "aspect-square" : "aspect-[4/3]"} overflow-hidden ${isCoatings ? "rounded-sm" : ""}`}
+                      >
+                        <img
+                          src={src}
+                          alt={alt}
+                          loading={isCoatings ? "lazy" : undefined}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </section>
