@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 import { ProjectPlanner } from "@nexora-systems-inc/planner-ui";
 import type { IntakeClientConfig } from "@nexora-systems-inc/planner-adapters";
 import { getIntakeClientConfig } from "@/lib/nexoraIntake";
+import ProjectPlannerSuccess from "@/components/ProjectPlannerSuccess";
 
 export default function SurfaceRenaudProjectPlanner() {
   const [intakeConfig, setIntakeConfig] = useState<IntakeClientConfig | null>(
     null,
   );
   const [configError, setConfigError] = useState<string | null>(null);
+  const [submittedRef, setSubmittedRef] = useState<string | null>(null);
 
   useEffect(() => {
     try {
@@ -20,6 +22,10 @@ export default function SurfaceRenaudProjectPlanner() {
       );
     }
   }, []);
+
+  if (submittedRef) {
+    return <ProjectPlannerSuccess confirmationRef={submittedRef} />;
+  }
 
   if (configError) {
     return <p className="font-sans-body text-sm text-red-600">{configError}</p>;
@@ -38,9 +44,10 @@ export default function SurfaceRenaudProjectPlanner() {
       <ProjectPlanner
         intakeConfig={intakeConfig}
         locale="en-CA"
-        className="bg-[#F5F2EE] p-8 lg:p-12"
+        className="bg-[#F5F2EE] border border-[#EDE9E3] p-8 lg:p-12"
         formClassName="font-sans-body text-[#2C2B29]"
         submitLabel="Submit Project Request"
+        onSubmitted={(result) => setSubmittedRef(result.confirmationRef)}
       />
     </div>
   );

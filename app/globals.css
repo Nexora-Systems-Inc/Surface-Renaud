@@ -100,4 +100,67 @@
     cursor: not-allowed;
     opacity: 0.6;
   }
+
+  /* Hide duplicate header from shared planner package — page provides its own */
+  .surface-renaud-planner form > header {
+    display: none;
+  }
+
+  /* Form section spacing and hierarchy */
+  .surface-renaud-planner form > div > section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-cream-dark);
+  }
+
+  .surface-renaud-planner form > div > section:first-child {
+    padding-top: 0;
+  }
+
+  .surface-renaud-planner form > div > section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .surface-renaud-planner form > div > section > h3 {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-stone);
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.01em;
+  }
+
+  .surface-renaud-planner form label {
+    font-family: 'Jost', 'Helvetica Neue', sans-serif;
+    color: var(--color-stone-light);
+    letter-spacing: 0.15em;
+  }
+
+  .surface-renaud-planner form input,
+  .surface-renaud-planner form textarea {
+    border-color: var(--color-cream-dark);
+    font-family: 'Jost', 'Helvetica Neue', sans-serif;
+    transition: border-color 0.2s ease;
+  }
+
+  .surface-renaud-planner form input:focus,
+  .surface-renaud-planner form textarea:focus {
+    border-color: var(--color-accent);
+  }
+
+  .surface-renaud-planner form button[type="button"] {
+    font-family: 'Jost', 'Helvetica Neue', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .surface-renaud-planner form button[type="button"]:hover:not(:disabled) {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
 }

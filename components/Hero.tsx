@@ -59,19 +59,28 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-wrap gap-4">
+            <Link
+              href="/project-planner"
+              className="inline-flex items-center gap-3 bg-[#B8975A] hover:bg-[#9A7D48] text-white px-8 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300 hover:shadow-lg hover:shadow-[#B8975A]/25"
+            >
+              Start Planning Your Project
+            </Link>
             <a
               href="tel:450-612-2539"
-              className="inline-flex items-center gap-3 bg-[#B8975A] hover:bg-[#9A7D48] text-white px-8 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300 hover:shadow-lg hover:shadow-[#B8975A]/25"
+              className="inline-flex items-center gap-3 border border-white/40 hover:border-[#B8975A] text-white hover:text-[#B8975A] px-8 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300"
             >
               Call Now
             </a>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-3 border border-white/40 hover:border-[#B8975A] text-white hover:text-[#B8975A] px-8 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300"
-            >
-              Our Services
-            </Link>
           </div>
+          <p className="font-sans-body text-white/45 text-xs font-light mt-5 tracking-wide">
+            New — try our{" "}
+            <Link
+              href="/project-planner"
+              className="text-[#B8975A]/90 hover:text-[#B8975A] underline underline-offset-2 transition-colors duration-300"
+            >
+              Online Project Planner (Beta)
+            </Link>
+          </p>
         </div>
       </div>
 
