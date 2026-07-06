@@ -1,30 +1,85 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import ImageLightbox, { type LightboxImage } from "@/components/ImageLightbox";
 
-const heroImage = {
-  src: "/images/featured-project/bathroom-retreat-hero.webp",
-  alt: "Luxury marble-look bathroom with freestanding tub and curbless walk-in shower",
-  width: 768,
-  height: 1024,
-};
-
-const galleryImages = [
+const projectImages: LightboxImage[] = [
+  {
+    src: "/images/featured-project/bathroom-retreat-hero.webp",
+    alt: "Luxury marble-look bathroom with freestanding tub and curbless walk-in shower",
+  },
   {
     src: "/images/featured-project/bathroom-retreat-shower.webp",
     alt: "Curbless walk-in shower with integrated bench and marble-look porcelain tile",
-    width: 768,
-    height: 1024,
   },
   {
     src: "/images/featured-project/bathroom-retreat-niche.webp",
     alt: "Custom recessed shower niche with precision marble-look tile work",
-    width: 768,
-    height: 1024,
   },
 ];
 
+const heroImage = {
+  ...projectImages[0],
+  width: 768,
+  height: 1024,
+};
+
+const galleryImages = projectImages.slice(1).map((img) => ({
+  ...img,
+  width: 768,
+  height: 1024,
+}));
+
+function ClickableImage({
+  src,
+  alt,
+  width,
+  height,
+  priority,
+  sizes,
+  className,
+  onOpen,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  priority?: boolean;
+  sizes: string;
+  className?: string;
+  onOpen: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      className={`relative w-full h-full overflow-hidden cursor-pointer group text-left ${className ?? ""}`}
+      aria-label={`View larger: ${alt}`}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        priority={priority}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        sizes={sizes}
+      />
+      <div className="absolute inset-0 bg-[#2C2B29]/0 group-hover:bg-[#2C2B29]/25 transition-all duration-400 flex items-center justify-center">
+        <div className="w-10 h-10 border border-white/60 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span className="text-white text-xl font-light">+</span>
+        </div>
+      </div>
+    </button>
+  );
+}
+
 export default function FeaturedProject() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
   return (
     <section id="featured-project" className="py-28 lg:py-36 bg-[#FAFAF8]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -46,15 +101,15 @@ export default function FeaturedProject() {
         {/* Hero + content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7 relative">
-            <div className="aspect-[3/4] overflow-hidden">
-              <Image
+            <div className="aspect-[3/4] overflow-hidden rounded-nx-md">
+              <ClickableImage
                 src={heroImage.src}
                 alt={heroImage.alt}
                 width={heroImage.width}
                 height={heroImage.height}
                 priority
-                className="w-full h-full object-cover"
                 sizes="(max-width: 1024px) 100vw, 58vw"
+                onOpen={() => setLightboxIndex(0)}
               />
             </div>
             <div className="absolute -bottom-4 -right-4 w-2/3 h-2/3 border border-[#B8975A]/20 pointer-events-none hidden lg:block" />
@@ -73,15 +128,15 @@ export default function FeaturedProject() {
 
             {/* Secondary gallery */}
             <div className="grid grid-cols-2 gap-3">
-              {galleryImages.map((img) => (
-                <div key={img.src} className="aspect-[3/4] overflow-hidden group">
-                  <Image
+              {galleryImages.map((img, i) => (
+                <div key={img.src} className="aspect-[3/4] overflow-hidden rounded-nx-md">
+                  <ClickableImage
                     src={img.src}
                     alt={img.alt}
                     width={img.width}
                     height={img.height}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 1024px) 45vw, 20vw"
+                    onOpen={() => setLightboxIndex(i + 1)}
                   />
                 </div>
               ))}
@@ -93,7 +148,7 @@ export default function FeaturedProject() {
         <div className="mt-20 flex justify-center">
           <Link
             href="#gallery"
-            className="inline-flex items-center gap-3 border border-[#2C2B29]/20 hover:border-[#B8975A] text-[#2C2B29] hover:text-[#B8975A] px-10 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300 group"
+            className="inline-flex items-center gap-3 border border-[#2C2B29]/20 hover:border-[#B8975A] text-[#2C2B29] hover:text-[#B8975A] px-10 py-4 rounded-nx-sm font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300 group"
           >
             View Full Gallery
             <ArrowRight
@@ -103,6 +158,15 @@ export default function FeaturedProject() {
           </Link>
         </div>
       </div>
+
+      {lightboxIndex !== null && (
+        <ImageLightbox
+          images={projectImages}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onIndexChange={setLightboxIndex}
+        />
+      )}
     </section>
   );
 }

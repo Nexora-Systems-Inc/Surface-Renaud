@@ -60,7 +60,7 @@ export default function Navbar() {
         {/* CTA */}
         <a
           href="tel:450-612-2539"
-          className="hidden md:flex items-center gap-2 border border-[#B8975A] text-[#B8975A] hover:bg-[#B8975A] hover:text-white px-5 py-2.5 transition-all duration-300 font-sans-body text-xs tracking-[0.2em] uppercase"
+          className="hidden md:flex items-center gap-2 border border-[#B8975A] text-[#B8975A] hover:bg-[#B8975A] hover:text-white px-5 py-2.5 rounded-nx-sm transition-all duration-300 font-sans-body text-xs tracking-[0.2em] uppercase"
         >
           <Phone size={13} />
           450-612-2539

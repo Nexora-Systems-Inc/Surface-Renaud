@@ -46,16 +46,16 @@ export default function ProjectPlannerPromo() {
 
             <Link
               href="/project-planner"
-              className="inline-flex items-center gap-3 bg-[#B8975A] hover:bg-[#9A7D48] text-white px-8 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300 hover:shadow-lg hover:shadow-[#B8975A]/25"
+              className="inline-flex items-center gap-3 bg-[#B8975A] hover:bg-[#9A7D48] text-white px-8 py-4 rounded-nx-sm font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300 hover:shadow-lg hover:shadow-[#B8975A]/25"
             >
               Try Our Online Project Planner
               <ArrowRight size={14} />
             </Link>
           </div>
 
-          <div className="bg-[#FAFAF8] border border-[#EDE9E3] p-10 lg:p-12">
+          <div className="bg-[#FAFAF8] border border-[#EDE9E3] p-10 lg:p-12 rounded-nx-md">
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 border border-[#B8975A]/40 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 border border-[#B8975A]/40 rounded-nx-sm flex items-center justify-center shrink-0">
                 <ClipboardList size={20} className="text-[#B8975A]" />
               </div>
               <div>

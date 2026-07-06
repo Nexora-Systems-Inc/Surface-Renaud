@@ -96,7 +96,7 @@ export default function ProjectPlannerIntro() {
           }}
         />
         <div className="relative flex gap-5">
-          <div className="w-10 h-10 border border-[#B8975A]/40 flex items-center justify-center shrink-0 mt-0.5">
+          <div className="w-10 h-10 border border-[#B8975A]/40 rounded-nx-sm flex items-center justify-center shrink-0 mt-0.5">
             <Sparkles size={18} className="text-[#B8975A]" />
           </div>
           <div>
@@ -122,7 +122,7 @@ export function ProjectPlannerInfoSection() {
       <div className="max-w-4xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {/* Checklist */}
-          <div className="bg-[#FAFAF8] border border-[#EDE9E3] p-8 lg:p-10">
+          <div className="bg-[#FAFAF8] border border-[#EDE9E3] p-8 lg:p-10 rounded-nx-md">
             <h2 className="font-display text-[#2C2B29] text-2xl font-light mb-2">
               Before You Begin
             </h2>
@@ -145,7 +145,7 @@ export function ProjectPlannerInfoSection() {
           </div>
 
           {/* After submission process */}
-          <div className="bg-[#FAFAF8] border border-[#EDE9E3] p-8 lg:p-10">
+          <div className="bg-[#FAFAF8] border border-[#EDE9E3] p-8 lg:p-10 rounded-nx-md">
             <h2 className="font-display text-[#2C2B29] text-2xl font-light mb-2">
               What Happens Next
             </h2>
@@ -156,7 +156,7 @@ export function ProjectPlannerInfoSection() {
               {processSteps.map((step, index) => (
                 <li key={step.title} className="flex gap-4">
                   <div className="flex flex-col items-center shrink-0">
-                    <div className="w-8 h-8 border border-[#B8975A]/40 flex items-center justify-center">
+                    <div className="w-8 h-8 border border-[#B8975A]/40 rounded-nx-sm flex items-center justify-center">
                       <step.icon size={14} className="text-[#B8975A]" />
                     </div>
                     {index < processSteps.length - 1 && (

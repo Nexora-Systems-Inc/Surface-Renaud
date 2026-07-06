@@ -95,9 +95,9 @@ export default function ServicesPage() {
                 {service.images.map((img, j) => (
                   <div
                     key={j}
-                    className={`overflow-hidden group ${j === 0 ? "col-span-2 row-span-2" : ""}`}
+                    className={`overflow-hidden group rounded-nx-md ${j === 0 ? "col-span-2 row-span-2" : ""}`}
                   >
-                    <div className={`${j === 0 ? "aspect-square" : "aspect-[4/3]"} overflow-hidden`}>
+                    <div className={`${j === 0 ? "aspect-square" : "aspect-[4/3]"} overflow-hidden rounded-nx-md`}>
                       <img
                         src={img}
                         alt={`${service.title} – project ${j + 1}`}

@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { X } from "lucide-react";
+import ImageLightbox, { type LightboxImage } from "@/components/ImageLightbox";
 
-const galleryImages = [
+const galleryImages: LightboxImage[] = [
   {
     src: "https://static.wixstatic.com/media/d833f9_6da1e94357f14eb09e2a82d1864dc4ee~mv2.jpg",
     alt: "Surface Renaud – bathroom tile installation",
@@ -39,7 +39,7 @@ const galleryImages = [
 ];
 
 export default function Gallery() {
-  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
     <section id="gallery" className="py-28 lg:py-36 bg-[#F5F2EE]">
@@ -67,46 +67,35 @@ export default function Gallery() {
         {/* Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[220px]">
           {galleryImages.map((img, i) => (
-            <div
+            <button
               key={i}
-              className={`overflow-hidden cursor-pointer group relative ${i === 0 ? "row-span-2" : ""} ${i === 3 ? "md:col-span-2" : ""}`}
-              onClick={() => setLightbox(img.src)}
+              type="button"
+              onClick={() => setLightboxIndex(i)}
+              aria-label={`View larger: ${img.alt}`}
+              className={`overflow-hidden cursor-pointer group relative text-left rounded-nx-md ${i === 0 ? "row-span-2" : ""} ${i === 3 ? "md:col-span-2" : ""}`}
             >
               <img
                 src={img.src}
                 alt={img.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-[#2C2B29]/0 group-hover:bg-[#2C2B29]/30 transition-all duration-400 flex items-center justify-center">
-                <div className="w-10 h-10 border border-white/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-[#2C2B29]/0 group-hover:bg-[#2C2B29]/25 transition-all duration-400 flex items-center justify-center">
+                <div className="w-10 h-10 border border-white/60 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-white text-xl font-light">+</span>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
 
-      {/* Lightbox */}
-      {lightbox && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
-          onClick={() => setLightbox(null)}
-        >
-          <button
-            className="absolute top-6 right-6 text-white/60 hover:text-white transition-colors"
-            onClick={() => setLightbox(null)}
-            aria-label="Close"
-          >
-            <X size={28} />
-          </button>
-          <img
-            src={lightbox}
-            alt="Project detail"
-            className="max-w-full max-h-[90vh] object-contain"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
+      {lightboxIndex !== null && (
+        <ImageLightbox
+          images={galleryImages}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onIndexChange={setLightboxIndex}
+        />
       )}
     </section>
   );

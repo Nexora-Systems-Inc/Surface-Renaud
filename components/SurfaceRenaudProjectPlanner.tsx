@@ -44,7 +44,7 @@ export default function SurfaceRenaudProjectPlanner() {
       <ProjectPlanner
         intakeConfig={intakeConfig}
         locale="en-CA"
-        className="bg-[#F5F2EE] border border-[#EDE9E3] p-8 lg:p-12"
+        className="bg-[#F5F2EE] border border-[#EDE9E3] p-8 lg:p-12 rounded-nx-md"
         formClassName="font-sans-body text-[#2C2B29]"
         submitLabel="Submit Project Request"
         onSubmitted={(result) => setSubmittedRef(result.confirmationRef)}

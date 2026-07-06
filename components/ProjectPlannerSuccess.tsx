@@ -17,9 +17,9 @@ export default function ProjectPlannerSuccess({
 }: ProjectPlannerSuccessProps) {
   return (
     <div className="space-y-10">
-      <div className="bg-[#F5F2EE] border border-[#EDE9E3] p-10 lg:p-14 text-center">
+      <div className="bg-[#F5F2EE] border border-[#EDE9E3] p-10 lg:p-14 text-center rounded-nx-md">
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 border border-[#B8975A]/40 flex items-center justify-center">
+          <div className="w-16 h-16 border border-[#B8975A]/40 rounded-nx-sm flex items-center justify-center">
             <CheckCircle2 size={32} className="text-[#B8975A]" />
           </div>
         </div>
@@ -35,7 +35,7 @@ export default function ProjectPlannerSuccess({
           everything you shared.
         </p>
 
-        <div className="inline-block bg-[#FAFAF8] border border-[#EDE9E3] px-6 py-3">
+        <div className="inline-block bg-[#FAFAF8] border border-[#EDE9E3] px-6 py-3 rounded-nx-sm">
           <span className="font-sans-body text-[#7A7774] text-[10px] tracking-[0.3em] uppercase">
             Reference Number
           </span>
@@ -45,7 +45,7 @@ export default function ProjectPlannerSuccess({
         </div>
       </div>
 
-      <div className="bg-[#2C2B29] p-8 lg:p-10">
+      <div className="bg-[#2C2B29] p-8 lg:p-10 rounded-nx-md">
         <h3 className="font-display text-white text-2xl font-light mb-6">
           What Happens Next
         </h3>

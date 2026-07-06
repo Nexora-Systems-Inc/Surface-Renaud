@@ -29,6 +29,11 @@ const config: Config = {
           light: "#D4B87A",
         },
       },
+      borderRadius: {
+        "nx-sm": "10px",
+        "nx-md": "16px",
+        "nx-lg": "24px",
+      },
       transitionDuration: {
         "400": "400ms",
       },

@@ -61,13 +61,13 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4">
             <Link
               href="/project-planner"
-              className="inline-flex items-center gap-3 bg-[#B8975A] hover:bg-[#9A7D48] text-white px-8 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300 hover:shadow-lg hover:shadow-[#B8975A]/25"
+              className="inline-flex items-center gap-3 bg-[#B8975A] hover:bg-[#9A7D48] text-white px-8 py-4 rounded-nx-sm font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300 hover:shadow-lg hover:shadow-[#B8975A]/25"
             >
               Start Planning Your Project
             </Link>
             <a
               href="tel:450-612-2539"
-              className="inline-flex items-center gap-3 border border-white/40 hover:border-[#B8975A] text-white hover:text-[#B8975A] px-8 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300"
+              className="inline-flex items-center gap-3 border border-white/40 hover:border-[#B8975A] text-white hover:text-[#B8975A] px-8 py-4 rounded-nx-sm font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300"
             >
               Call Now
             </a>

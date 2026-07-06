@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --radius-nx-sm: 10px;
+  --radius-nx-md: 16px;
+  --radius-nx-lg: 24px;
+}
+
 @source "../app";
 @source "../components";
 @source "../node_modules/@nexora-systems-inc/planner-ui/dist";
@@ -15,6 +21,9 @@
     --color-accent: #B8975A;
     --color-accent-dark: #9A7D48;
     --color-accent-light: #D4B87A;
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
   }
 
   * {
@@ -87,6 +96,7 @@
     text-transform: uppercase;
     color: #fff;
     border: none;
+    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
@@ -140,6 +150,7 @@
   .surface-renaud-planner form input,
   .surface-renaud-planner form textarea {
     border-color: var(--color-cream-dark);
+    border-radius: var(--radius-sm);
     font-family: 'Jost', 'Helvetica Neue', sans-serif;
     transition: border-color 0.2s ease;
   }
@@ -156,6 +167,7 @@
     text-transform: uppercase;
     color: var(--color-accent);
     border-color: var(--color-accent);
+    border-radius: var(--radius-sm);
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
