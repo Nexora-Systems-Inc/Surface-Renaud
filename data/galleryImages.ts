@@ -83,4 +83,34 @@ export const galleryImages: LightboxImage[] = [
     thumb: "/images/gallery/terrazzo-shower-gold-hardware-full-thumb.webp",
     alt: "Surface Renaud – full terrazzo shower with gold rainfall fixtures",
   },
+  {
+    src: "/images/gallery/custom-shower-fluted-accent-wall.webp",
+    thumb: "/images/gallery/custom-shower-fluted-accent-wall-thumb.webp",
+    alt: "Surface Renaud – custom shower with fluted accent wall and built-in niche",
+  },
+  {
+    src: "/images/gallery/gold-fixtures-textured-tile-shower.webp",
+    thumb: "/images/gallery/gold-fixtures-textured-tile-shower-thumb.webp",
+    alt: "Surface Renaud – custom shower with gold fixtures and textured tile",
+  },
+  {
+    src: "/images/gallery/vanity-freestanding-tub-bathroom.webp",
+    thumb: "/images/gallery/vanity-freestanding-tub-bathroom-thumb.webp",
+    alt: "Surface Renaud – bathroom with ribbed vanity cabinetry and freestanding tub",
+  },
+  {
+    src: "/images/gallery/terrazzo-shower-black-niche.webp",
+    thumb: "/images/gallery/terrazzo-shower-black-niche-thumb.webp",
+    alt: "Surface Renaud – terrazzo tile shower with black fixtures and recessed niche",
+  },
+  {
+    src: "/images/gallery/grey-terrazzo-wet-room.webp",
+    thumb: "/images/gallery/grey-terrazzo-wet-room-thumb.webp",
+    alt: "Surface Renaud – grey terrazzo wet room with matte black rainfall shower",
+  },
+  {
+    src: "/images/gallery/walk-in-shower-mosaic-window.webp",
+    thumb: "/images/gallery/walk-in-shower-mosaic-window-thumb.webp",
+    alt: "Surface Renaud – walk-in shower with mosaic accent wall and natural light",
+  },
 ];
