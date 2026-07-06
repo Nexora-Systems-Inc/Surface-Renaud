@@ -13,7 +13,7 @@ export default function PoweredByCrewPilot({
 
   return (
     <p
-      className={`inline-flex items-center gap-1.5 font-sans-body text-[10px] tracking-[0.22em] uppercase ${className}`}
+      className={`inline-flex items-center gap-1.5 font-sans-body text-[17.5px] tracking-[0.22em] uppercase ${className}`}
     >
       <span className={isDark ? "text-white/35" : "text-[#7A7774]/70"}>
         Powered by
@@ -23,9 +23,9 @@ export default function PoweredByCrewPilot({
         alt="CrewPilot"
         width={72}
         height={72}
-        className="h-[1.125rem] w-auto shrink-0"
+        className="h-[1.96875rem] w-auto shrink-0"
       />
-      <span className={isDark ? "text-white/25" : "text-[#7A7774]/50"}>
+      <span className="text-[#B8975A]">
         (Beta)
       </span>
     </p>
