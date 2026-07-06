@@ -88,7 +88,7 @@ export default function ProjectPlannerIntro() {
       </div>
 
       {/* Beta notice — unchanged */}
-      <div className="bg-[#2C2B29] p-8 lg:p-10 relative overflow-hidden">
+      <div className="bg-[#2C2B29] p-8 lg:p-10 relative overflow-hidden rounded-nx-md">
         <div
           className="absolute right-0 top-0 w-1/2 h-full opacity-10"
           style={{

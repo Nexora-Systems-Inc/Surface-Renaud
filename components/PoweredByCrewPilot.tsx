@@ -25,7 +25,7 @@ export default function PoweredByCrewPilot({
         height={72}
         className="h-[1.96875rem] w-auto shrink-0"
       />
-      <span className="text-[#B8975A]">
+      <span className="text-[#B8975A] text-[11px] tracking-[0.22em]">
         (Beta)
       </span>
     </p>
