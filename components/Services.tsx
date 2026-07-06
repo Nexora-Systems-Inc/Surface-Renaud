@@ -76,11 +76,11 @@ export default function Services() {
                   i % 2 === 1 ? "lg:order-3 lg:col-start-9" : ""
                 }`}
               >
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className="aspect-[4/3] content-photo">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="content-photo-img"
                   />
                 </div>
               </div>

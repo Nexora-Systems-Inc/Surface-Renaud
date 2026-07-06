@@ -23,13 +23,13 @@ export default function GalleryGrid() {
             type="button"
             onClick={() => setLightboxIndex(i)}
             aria-label={`View larger: ${img.alt}`}
-            className={`relative w-full overflow-hidden cursor-pointer group text-left rounded-sm ${tileLayout(i)}`}
+            className={`relative w-full cursor-pointer group text-left content-photo ${tileLayout(i)}`}
           >
             <img
               src={img.thumb ?? img.src}
               alt={img.alt}
               loading={i < 3 ? "eager" : "lazy"}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="content-photo-img absolute inset-0"
             />
             <div className="absolute inset-0 bg-[#2C2B29]/0 group-hover:bg-[#2C2B29]/25 transition-all duration-400 flex items-center justify-center">
               <div className="w-10 h-10 border border-white/60 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

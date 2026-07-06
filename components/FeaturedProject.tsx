@@ -56,7 +56,7 @@ function ClickableImage({
     <button
       type="button"
       onClick={onOpen}
-      className={`relative w-full h-full overflow-hidden cursor-pointer group text-left ${className ?? ""}`}
+      className={`relative w-full h-full cursor-pointer group text-left content-photo ${className ?? ""}`}
       aria-label={`View larger: ${alt}`}
     >
       <Image
@@ -65,7 +65,7 @@ function ClickableImage({
         width={width}
         height={height}
         priority={priority}
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        className="content-photo-img"
         sizes={sizes}
       />
       <div className="absolute inset-0 bg-[#2C2B29]/0 group-hover:bg-[#2C2B29]/25 transition-all duration-400 flex items-center justify-center">
@@ -101,7 +101,7 @@ export default function FeaturedProject() {
         {/* Hero + content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7 relative">
-            <div className="aspect-[3/4] overflow-hidden rounded-sm">
+            <div className="aspect-[3/4]">
               <ClickableImage
                 src={heroImage.src}
                 alt={heroImage.alt}
@@ -129,7 +129,7 @@ export default function FeaturedProject() {
             {/* Secondary gallery */}
             <div className="grid grid-cols-2 gap-3">
               {galleryImages.map((img, i) => (
-                <div key={img.src} className="aspect-[3/4] overflow-hidden rounded-sm">
+                <div key={img.src} className="aspect-[3/4]">
                   <ClickableImage
                     src={img.src}
                     alt={img.alt}

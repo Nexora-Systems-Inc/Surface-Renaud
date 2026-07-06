@@ -22,11 +22,11 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image */}
           <div className="relative">
-            <div className="aspect-[4/5] overflow-hidden">
+            <div className="aspect-[4/5] content-photo group">
               <img
                 src="https://static.wixstatic.com/media/ea26fd_0e8eb61209a542fda3b36451a15530fc~mv2_d_6720_4480_s_4_2.jpg"
                 alt="Surface Renaud Inc – craftsmanship and precision"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                className="content-photo-img"
               />
             </div>
             {/* Gold accent frames */}

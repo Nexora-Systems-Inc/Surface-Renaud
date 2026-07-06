@@ -132,21 +132,17 @@ export default function ServicesPage() {
                     typeof img === "string"
                       ? `${service.title} – project ${j + 1}`
                       : img.alt;
-                  const isCoatings = service.id === "coatings";
-
                   return (
                     <div
                       key={j}
-                      className={`overflow-hidden group ${j === 0 ? "col-span-2 row-span-2" : ""} ${isCoatings ? "rounded-sm shadow-sm" : ""}`}
+                      className={`content-photo group ${j === 0 ? "col-span-2 row-span-2" : ""}`}
                     >
-                      <div
-                        className={`${j === 0 ? "aspect-square" : "aspect-[4/3]"} overflow-hidden ${isCoatings ? "rounded-sm" : ""}`}
-                      >
+                      <div className={j === 0 ? "aspect-square" : "aspect-[4/3]"}>
                         <img
                           src={src}
                           alt={alt}
-                          loading={isCoatings ? "lazy" : undefined}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          loading="lazy"
+                          className="content-photo-img"
                         />
                       </div>
                     </div>
