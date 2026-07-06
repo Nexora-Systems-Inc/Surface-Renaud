@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import PoweredByCrewPilot from "@/components/PoweredByCrewPilot";
+import Image from "next/image";
 import ProjectPlannerIntro, {
   ProjectPlannerFormDivider,
   ProjectPlannerInfoSection,
@@ -19,7 +20,19 @@ export default function ProjectPlannerPage() {
     <>
       <Navbar />
       <PageHero
-        eyebrow="Online Project Planner · Beta"
+        eyebrow={
+          <span className="inline-flex items-center gap-2.5">
+            <span>NEW —</span>
+            <Image
+              src="/products/crewpilot-logo.png"
+              alt=""
+              width={72}
+              height={72}
+              className="h-[14px] w-auto shrink-0"
+            />
+            <span>BETA</span>
+          </span>
+        }
         title={
           <>
             Plan Your

@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 
 type PageHeroProps = {
-  eyebrow: string;
+  eyebrow: ReactNode;
   title: ReactNode;
   backHref?: string;
   backLabel?: string;
