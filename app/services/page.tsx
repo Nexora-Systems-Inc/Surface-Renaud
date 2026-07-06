@@ -56,6 +56,10 @@ const services = [
         src: "/images/services/coatings/contemporary-white-wood-cladding.webp",
         alt: "Surface Renaud – contemporary exterior with white coating and natural wood cladding",
       },
+      {
+        src: "/images/services/coatings/exterior-stair-coating.webp",
+        alt: "Surface Renaud – exterior stairwell with grey architectural coating and tiled steps",
+      },
     ],
   },
 ];
