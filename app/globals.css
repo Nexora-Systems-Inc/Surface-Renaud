@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@source "../app";
+@source "../components";
+@source "../node_modules/@nexora-systems-inc/planner-ui/dist";
+
 @layer base {
   :root {
     --color-stone: #2C2B29;
@@ -66,5 +70,34 @@
 
   .text-stone-light {
     color: var(--color-stone-light);
+  }
+
+  .surface-renaud-planner form > button[type="submit"] {
+    margin-top: 2rem;
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-accent);
+    padding: 1rem 2rem;
+    font-family: 'Jost', 'Helvetica Neue', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .surface-renaud-planner form > button[type="submit"]:hover:not(:disabled) {
+    background-color: var(--color-accent-dark);
+    box-shadow: 0 10px 25px rgb(184 151 90 / 0.25);
+  }
+
+  .surface-renaud-planner form > button[type="submit"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
   }
 }

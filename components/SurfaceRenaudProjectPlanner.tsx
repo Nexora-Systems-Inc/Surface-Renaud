@@ -34,12 +34,14 @@ export default function SurfaceRenaudProjectPlanner() {
   }
 
   return (
-    <ProjectPlanner
-      intakeConfig={intakeConfig}
-      locale="en-CA"
-      className="bg-[#F5F2EE] p-8 lg:p-12"
-      formClassName="font-sans-body text-[#2C2B29]"
-      submitLabel="Submit Project Request"
-    />
+    <div className="surface-renaud-planner">
+      <ProjectPlanner
+        intakeConfig={intakeConfig}
+        locale="en-CA"
+        className="bg-[#F5F2EE] p-8 lg:p-12"
+        formClassName="font-sans-body text-[#2C2B29]"
+        submitLabel="Submit Project Request"
+      />
+    </div>
   );
 }

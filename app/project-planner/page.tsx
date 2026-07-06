@@ -28,6 +28,8 @@ export default function ProjectPlannerPage() {
             </h1>
             <p className="font-sans-body text-[#7A7774] text-sm leading-relaxed font-light mt-6 max-w-2xl">
               Share your project details and our team will review your request.
+              All contact and project fields are required, including at least one
+              location and one scope of work item.
             </p>
           </div>
 
