@@ -18,6 +18,10 @@ const services = [
     description:
       "Transform your bathroom with a custom shower built to your exact size, style, and layout. From sleek walk-ins to spa-inspired retreats, every detail — tile, glass, and finish — is crafted to fit your vision. Precision installation ensures lasting beauty, comfort, and performance for years to come.",
     images: [
+      {
+        src: "/images/services/showers/marble-walk-in-shower.webp",
+        alt: "Surface Renaud – marble-look walk-in shower with built-in bench and recessed niche",
+      },
       "https://static.wixstatic.com/media/d833f9_20c8e0094a134b289e3ea103c1c5f7e4~mv2.jpg",
       "https://static.wixstatic.com/media/d833f9_8348dd746d3348a0b76bdbb6cf36c0df~mv2.jpg",
       "https://static.wixstatic.com/media/d833f9_43125b4e2cb345d193bd6c84d8e0d5bd~mv2.jpg",
