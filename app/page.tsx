@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeaturedProject from "@/components/FeaturedProject";
-import Gallery from "@/components/Gallery";
+import GalleryTeaser from "@/components/GalleryTeaser";
 import ProjectPlannerPromo from "@/components/ProjectPlannerPromo";
 import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
@@ -15,7 +15,7 @@ export default function Home() {
       <main>
         <Hero />
         <FeaturedProject />
-        <Gallery />
+        <GalleryTeaser />
         <ProjectPlannerPromo />
         <About />
         <Testimonials />

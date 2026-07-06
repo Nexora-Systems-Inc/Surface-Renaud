@@ -147,7 +147,7 @@ export default function FeaturedProject() {
         {/* CTA */}
         <div className="mt-20 flex justify-center">
           <Link
-            href="#gallery"
+            href="/gallery"
             className="inline-flex items-center gap-3 border border-[#2C2B29]/20 hover:border-[#B8975A] text-[#2C2B29] hover:text-[#B8975A] px-10 py-4 rounded-nx-sm font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300 group"
           >
             View Full Gallery

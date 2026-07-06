@@ -44,8 +44,8 @@ export default function Navbar() {
             { label: "Home", href: "/" },
             { label: "Services", href: "/services" },
             { label: "Project Planner", href: "/project-planner" },
-            { label: "Gallery", href: "#gallery" },
-            { label: "Contact", href: "#contact" },
+            { label: "Gallery", href: "/gallery" },
+            { label: "Contact", href: "/#contact" },
           ].map((item) => (
             <Link
               key={item.href}
@@ -83,8 +83,8 @@ export default function Navbar() {
             { label: "Home", href: "/" },
             { label: "Services", href: "/services" },
             { label: "Project Planner", href: "/project-planner" },
-            { label: "Gallery", href: "#gallery" },
-            { label: "Contact", href: "#contact" },
+            { label: "Gallery", href: "/gallery" },
+            { label: "Contact", href: "/#contact" },
           ].map((item) => (
             <Link
               key={item.href}
