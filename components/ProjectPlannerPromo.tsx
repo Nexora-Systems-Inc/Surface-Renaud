@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ClipboardList } from "lucide-react";
 
 export default function ProjectPlannerPromo() {
@@ -22,8 +23,16 @@ export default function ProjectPlannerPromo() {
           <div>
             <div className="flex items-center gap-4 mb-6">
               <div className="h-px w-10 bg-[#B8975A]" />
-              <span className="font-sans-body text-[#B8975A] text-[11px] tracking-[0.4em] uppercase">
-                New — Beta
+              <span className="font-sans-body text-[#B8975A] text-[11px] tracking-[0.4em] uppercase inline-flex items-center gap-2.5">
+                <span>New —</span>
+                <Image
+                  src="/products/crewpilot-logo.png"
+                  alt=""
+                  width={72}
+                  height={72}
+                  className="h-[14px] w-auto shrink-0"
+                />
+                <span>— Beta</span>
               </span>
             </div>
 
