@@ -9,6 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@nexora/planner-adapters": "file:../../../voice-intake-app/packages/planner-adapters",
+    "@nexora/planner-core": "file:../../../voice-intake-app/packages/planner-core",
+    "@nexora/planner-ui": "file:../../../voice-intake-app/packages/planner-ui",
     "lucide-react": "^1.16.0",
     "next": "16.2.6",
     "react": "19.2.4",

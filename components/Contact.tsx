@@ -109,6 +109,12 @@ export default function Contact() {
 
               <div className="space-y-3">
                 <a
+                  href="/project-planner"
+                  className="w-full flex items-center justify-center gap-3 bg-[#B8975A] hover:bg-[#9A7D48] text-white px-8 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300"
+                >
+                  Start Project Planner
+                </a>
+                <a
                   href="tel:450-612-2539"
                   className="w-full flex items-center justify-center gap-3 bg-[#2C2B29] hover:bg-[#B8975A] text-white px-8 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300"
                 >
