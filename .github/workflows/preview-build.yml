@@ -1,0 +1,40 @@
+name: Preview Build
+
+on:
+  push:
+    branches:
+      - feature/project-planner-foundation
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: https://npm.pkg.github.com
+          scope: "@nexora-systems-inc"
+
+      - name: Install dependencies
+        run: npm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_NEXORA_INTAKE_URL: https://voice-intake-app-production.up.railway.app
+          NEXT_PUBLIC_NEXORA_SITE_SLUG: surface-renaud
+          NEXT_PUBLIC_NEXORA_SITE_KEY: pk_test_surface_renaud_dev
