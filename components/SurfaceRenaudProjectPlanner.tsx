@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ProjectPlanner } from "@nexora/planner-ui";
-import type { IntakeClientConfig } from "@nexora/planner-adapters";
+import { ProjectPlanner } from "@nexora-systems-inc/planner-ui";
+import type { IntakeClientConfig } from "@nexora-systems-inc/planner-adapters";
 import { getIntakeClientConfig } from "@/lib/nexoraIntake";
 
 export default function SurfaceRenaudProjectPlanner() {

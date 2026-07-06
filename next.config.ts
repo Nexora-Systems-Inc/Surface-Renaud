@@ -2,9 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   transpilePackages: [
-    "@nexora/planner-core",
-    "@nexora/planner-adapters",
-    "@nexora/planner-ui",
+    "@nexora-systems-inc/planner-core",
+    "@nexora-systems-inc/planner-adapters",
+    "@nexora-systems-inc/planner-ui",
   ],
 };
 
