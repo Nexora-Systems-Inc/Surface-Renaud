@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 export type LightboxImage = {
   src: string;
   alt: string;
+  thumb?: string;
 };
 
 type ImageLightboxProps = {

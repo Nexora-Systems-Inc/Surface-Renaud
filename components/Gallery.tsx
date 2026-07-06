@@ -36,6 +36,56 @@ const galleryImages: LightboxImage[] = [
     src: "https://static.wixstatic.com/media/d833f9_05c3191379cd45538f61d13bad42b3b2~mv2.jpg",
     alt: "Surface Renaud – completed tile project",
   },
+  {
+    src: "/images/gallery/dark-shower-patterned-floor-overhead.webp",
+    thumb: "/images/gallery/dark-shower-patterned-floor-overhead-thumb.webp",
+    alt: "Surface Renaud – dark tile shower with patterned floor overhead view",
+  },
+  {
+    src: "/images/gallery/dark-shower-walk-in-view.webp",
+    thumb: "/images/gallery/dark-shower-walk-in-view-thumb.webp",
+    alt: "Surface Renaud – walk-in shower with dark walls and decorative floor tile",
+  },
+  {
+    src: "/images/gallery/black-marble-floating-bench.webp",
+    thumb: "/images/gallery/black-marble-floating-bench-thumb.webp",
+    alt: "Surface Renaud – black marble tile shower with floating bench",
+  },
+  {
+    src: "/images/gallery/decorative-tile-shower-niche.webp",
+    thumb: "/images/gallery/decorative-tile-shower-niche-thumb.webp",
+    alt: "Surface Renaud – recessed shower niche with decorative tile inlay",
+  },
+  {
+    src: "/images/gallery/terrazzo-shower-gold-fixtures.webp",
+    thumb: "/images/gallery/terrazzo-shower-gold-fixtures-thumb.webp",
+    alt: "Surface Renaud – terrazzo tile shower with brushed gold fixtures",
+  },
+  {
+    src: "/images/gallery/light-grey-shower-accent-strip.webp",
+    thumb: "/images/gallery/light-grey-shower-accent-strip-thumb.webp",
+    alt: "Surface Renaud – light grey shower with textured accent tile strip",
+  },
+  {
+    src: "/images/gallery/terrazzo-shower-niches-bench.webp",
+    thumb: "/images/gallery/terrazzo-shower-niches-bench-thumb.webp",
+    alt: "Surface Renaud – terrazzo shower with built-in niches and bench seating",
+  },
+  {
+    src: "/images/gallery/bathroom-tub-wood-arch-terrazzo.webp",
+    thumb: "/images/gallery/bathroom-tub-wood-arch-terrazzo-thumb.webp",
+    alt: "Surface Renaud – bathroom with wood arch feature and terrazzo shower",
+  },
+  {
+    src: "/images/gallery/terrazzo-shower-linear-drain.webp",
+    thumb: "/images/gallery/terrazzo-shower-linear-drain-thumb.webp",
+    alt: "Surface Renaud – terrazzo shower floor with linear drain detail",
+  },
+  {
+    src: "/images/gallery/terrazzo-shower-gold-hardware-full.webp",
+    thumb: "/images/gallery/terrazzo-shower-gold-hardware-full-thumb.webp",
+    alt: "Surface Renaud – full terrazzo shower with gold rainfall fixtures",
+  },
 ];
 
 export default function Gallery() {
@@ -75,8 +125,9 @@ export default function Gallery() {
               className={`overflow-hidden cursor-pointer group relative text-left rounded-sm ${i === 0 ? "row-span-2" : ""} ${i === 3 ? "md:col-span-2" : ""}`}
             >
               <img
-                src={img.src}
+                src={img.thumb ?? img.src}
                 alt={img.alt}
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-[#2C2B29]/0 group-hover:bg-[#2C2B29]/25 transition-all duration-400 flex items-center justify-center">
