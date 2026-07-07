@@ -175,4 +175,62 @@
     background-color: var(--color-accent);
     color: #fff;
   }
+
+  /* Location-centric project cards */
+  .surface-renaud-planner .planner-location-card {
+    border-color: var(--color-cream-dark);
+    border-radius: var(--radius-md);
+    background-color: var(--color-warm-white);
+    box-shadow: 0 1px 2px rgb(44 43 41 / 0.04);
+  }
+
+  .surface-renaud-planner .planner-work-types-section {
+    border-top-color: var(--color-cream-dark);
+  }
+
+  .surface-renaud-planner .planner-work-types-heading {
+    font-family: 'Jost', 'Helvetica Neue', sans-serif;
+    color: var(--color-stone-mid);
+    letter-spacing: 0.15em;
+  }
+
+  .surface-renaud-planner .planner-work-types-empty {
+    font-family: 'Jost', 'Helvetica Neue', sans-serif;
+    color: var(--color-stone-light);
+    font-style: italic;
+  }
+
+  .surface-renaud-planner .planner-add-work-type {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    border-radius: var(--radius-sm);
+    font-family: 'Jost', 'Helvetica Neue', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .surface-renaud-planner .planner-add-work-type:hover:not(:disabled) {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .surface-renaud-planner .planner-add-location {
+    font-family: 'Jost', 'Helvetica Neue', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    text-decoration: none;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1.25rem;
+    display: inline-flex;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .surface-renaud-planner .planner-add-location:hover:not(:disabled) {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
 }
