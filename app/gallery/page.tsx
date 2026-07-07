@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import Gallery from "@/components/Gallery";
 
 export const metadata: Metadata = {
@@ -13,7 +14,17 @@ export default function GalleryPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-28">
+      <PageHero
+        eyebrow="Our Work"
+        title={
+          <>
+            Project
+            <br />
+            <em className="italic text-[#B8975A]">Gallery</em>
+          </>
+        }
+      />
+      <main>
         <Gallery />
       </main>
       <Footer />

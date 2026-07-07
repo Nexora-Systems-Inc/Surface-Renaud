@@ -10,25 +10,9 @@ export default function Gallery() {
   return (
     <section className="py-28 lg:py-36 bg-[#F5F2EE]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div>
-            <div className="flex items-center gap-4 mb-5">
-              <div className="h-px w-10 bg-[#B8975A]" />
-              <span className="font-sans-body text-[#B8975A] text-[11px] tracking-[0.4em] uppercase">
-                Our Work
-              </span>
-            </div>
-            <h2 className="font-display text-[#2C2B29] text-4xl md:text-5xl font-light leading-tight">
-              Project
-              <br />
-              <em className="italic text-[#7A7774] font-light">Gallery</em>
-            </h2>
-          </div>
-          <p className="font-sans-body text-[#7A7774] text-sm max-w-sm font-light leading-relaxed">
-            Every installation reflects a dedication to craftsmanship and a passion for getting the details right.
-          </p>
-        </div>
+        <p className="font-sans-body text-[#7A7774] text-sm max-w-sm font-light leading-relaxed mb-16">
+          Every installation reflects a dedication to craftsmanship and a passion for getting the details right.
+        </p>
 
         {/* Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[220px]">
