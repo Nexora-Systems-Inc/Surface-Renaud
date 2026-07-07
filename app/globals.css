@@ -229,6 +229,12 @@
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
+  .surface-renaud-planner .planner-work-type-item {
+    border-color: var(--color-cream-dark);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-cream);
+  }
+
   .surface-renaud-planner .planner-add-location:hover:not(:disabled) {
     background-color: var(--color-accent);
     color: #fff;
