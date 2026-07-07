@@ -126,7 +126,7 @@ export default function ImageLightbox({
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <div className="rounded-xl overflow-hidden shadow-2xl shadow-black/50">
+        <div className="rounded-nx-lg overflow-hidden shadow-2xl shadow-black/50">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={current.src}

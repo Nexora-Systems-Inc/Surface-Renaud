@@ -5,6 +5,7 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nexora-systems-inc/planner-ui/dist/**/*.{js,mjs}",
   ],
   theme: {
     extend: {
@@ -27,6 +28,11 @@ const config: Config = {
           dark: "#9A7D48",
           light: "#D4B87A",
         },
+      },
+      borderRadius: {
+        "nx-sm": "10px",
+        "nx-md": "16px",
+        "nx-lg": "24px",
       },
       transitionDuration: {
         "400": "400ms",

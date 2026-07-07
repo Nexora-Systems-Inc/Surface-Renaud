@@ -44,7 +44,7 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="group bg-white border border-[#EDE9E3] p-8 hover:border-[#B8975A]/40 hover:shadow-lg hover:shadow-[#B8975A]/5 transition-all duration-400"
+              className="group bg-white border border-[#EDE9E3] p-8 rounded-nx-md hover:border-[#B8975A]/40 hover:shadow-lg hover:shadow-[#B8975A]/5 transition-all duration-400"
             >
               <div className="font-display text-[#B8975A]/25 text-7xl font-light leading-none mb-4 -mt-2">
                 &ldquo;
@@ -53,7 +53,7 @@ export default function Testimonials() {
                 {t.quote}
               </p>
               <div className="flex items-center gap-3 pt-6 border-t border-[#EDE9E3]">
-                <div className="w-8 h-8 bg-[#B8975A]/10 flex items-center justify-center">
+                <div className="w-8 h-8 bg-[#B8975A]/10 rounded-nx-sm flex items-center justify-center">
                   <span className="font-display text-[#B8975A] text-sm font-medium">
                     {t.author[0]}
                   </span>

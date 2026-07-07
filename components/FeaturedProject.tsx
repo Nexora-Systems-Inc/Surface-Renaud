@@ -56,7 +56,7 @@ function ClickableImage({
     <button
       type="button"
       onClick={onOpen}
-      className={`relative w-full h-full cursor-pointer group text-left content-photo ${className ?? ""}`}
+      className={`relative w-full h-full cursor-pointer group text-left content-photo rounded-nx-md ${className ?? ""}`}
       aria-label={`View larger: ${alt}`}
     >
       <Image
@@ -101,7 +101,7 @@ export default function FeaturedProject() {
         {/* Hero + content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-7 relative">
-            <div className="aspect-[3/4]">
+            <div className="aspect-[3/4] overflow-hidden rounded-nx-md">
               <ClickableImage
                 src={heroImage.src}
                 alt={heroImage.alt}
@@ -129,7 +129,7 @@ export default function FeaturedProject() {
             {/* Secondary gallery */}
             <div className="grid grid-cols-2 gap-3">
               {galleryImages.map((img, i) => (
-                <div key={img.src} className="aspect-[3/4]">
+                <div key={img.src} className="aspect-[3/4] overflow-hidden rounded-nx-md">
                   <ClickableImage
                     src={img.src}
                     alt={img.alt}
@@ -148,7 +148,7 @@ export default function FeaturedProject() {
         <div className="mt-20 flex justify-center">
           <Link
             href="/gallery"
-            className="inline-flex items-center gap-3 border border-[#2C2B29]/20 hover:border-[#B8975A] text-[#2C2B29] hover:text-[#B8975A] px-10 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300 group"
+            className="inline-flex items-center gap-3 border border-[#2C2B29]/20 hover:border-[#B8975A] text-[#2C2B29] hover:text-[#B8975A] px-10 py-4 rounded-nx-sm font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300 group"
           >
             View Full Gallery
             <ArrowRight

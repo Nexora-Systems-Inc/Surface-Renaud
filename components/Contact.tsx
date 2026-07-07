@@ -99,25 +99,36 @@ export default function Contact() {
 
           {/* Right – CTA card */}
           <div className="lg:pt-16">
-            <div className="bg-[#F5F2EE] p-10 lg:p-12">
+            <div className="bg-[#F5F2EE] p-10 lg:p-12 rounded-nx-md">
+              <div className="font-sans-body text-[#B8975A] text-[10px] tracking-[0.3em] uppercase mb-3">
+                Online Project Planner — Beta
+              </div>
               <h3 className="font-display text-[#2C2B29] text-2xl md:text-3xl font-light mb-3">
-                Free Estimate
+                Plan Your Renovation Online
               </h3>
               <p className="font-sans-body text-[#7A7774] text-sm font-light mb-8">
-                Call us directly or send a message to schedule a site visit and discuss your needs.
+                Share your project details online and our team will review your
+                request before preparing an estimate. Prefer to talk first? Call
+                or email us anytime.
               </p>
 
               <div className="space-y-3">
                 <a
+                  href="/project-planner"
+                  className="w-full flex items-center justify-center gap-3 bg-[#B8975A] hover:bg-[#9A7D48] text-white px-8 py-4 rounded-nx-sm font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300"
+                >
+                  Start Planning Your Project
+                </a>
+                <a
                   href="tel:450-612-2539"
-                  className="w-full flex items-center justify-center gap-3 bg-[#2C2B29] hover:bg-[#B8975A] text-white px-8 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300"
+                  className="w-full flex items-center justify-center gap-3 bg-[#2C2B29] hover:bg-[#B8975A] text-white px-8 py-4 rounded-nx-sm font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300"
                 >
                   <Phone size={14} />
                   Call Now: 450-612-2539
                 </a>
                 <a
                   href="mailto:Surfacerenaud@hotmail.com"
-                  className="w-full flex items-center justify-center gap-3 border border-[#2C2B29] hover:border-[#B8975A] text-[#2C2B29] hover:text-[#B8975A] px-8 py-4 font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300"
+                  className="w-full flex items-center justify-center gap-3 border border-[#2C2B29] hover:border-[#B8975A] text-[#2C2B29] hover:text-[#B8975A] px-8 py-4 rounded-nx-sm font-sans-body text-xs tracking-[0.25em] uppercase transition-all duration-300"
                 >
                   <Mail size={14} />
                   Send an Email

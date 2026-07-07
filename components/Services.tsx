@@ -76,7 +76,7 @@ export default function Services() {
                   i % 2 === 1 ? "lg:order-3 lg:col-start-9" : ""
                 }`}
               >
-                <div className="aspect-[4/3] content-photo">
+                <div className="aspect-[4/3] content-photo rounded-nx-md">
                   <img
                     src={service.image}
                     alt={service.title}
