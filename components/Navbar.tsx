@@ -2,9 +2,26 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone, Menu, X } from "lucide-react";
 
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Project Planner", href: "/project-planner" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/#contact" },
+] as const;
+
+function isNavItemActive(pathname: string, href: string): boolean {
+  if (href === "/") return pathname === "/";
+  if (href.startsWith("/#")) return false;
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -39,22 +56,24 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10">
-          {[
-            { label: "Home", href: "/" },
-            { label: "Services", href: "/services" },
-            { label: "Project Planner", href: "/project-planner" },
-            { label: "Gallery", href: "/gallery" },
-            { label: "Contact", href: "/#contact" },
-          ].map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="font-sans-body text-white/70 hover:text-[#B8975A] text-xs tracking-[0.25em] uppercase transition-colors duration-300"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden md:flex items-center gap-10" aria-label="Main">
+          {navItems.map((item) => {
+            const active = isNavItemActive(pathname, item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`font-sans-body text-xs tracking-[0.25em] uppercase transition-colors duration-300 ${
+                  active
+                    ? "text-[#B8975A]"
+                    : "text-white/70 hover:text-[#B8975A]"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* CTA */}
@@ -71,6 +90,7 @@ export default function Navbar() {
           className="md:hidden text-white"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -79,22 +99,22 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-[#2C2B29] border-t border-white/10 px-6 py-6 space-y-5">
-          {[
-            { label: "Home", href: "/" },
-            { label: "Services", href: "/services" },
-            { label: "Project Planner", href: "/project-planner" },
-            { label: "Gallery", href: "/gallery" },
-            { label: "Contact", href: "/#contact" },
-          ].map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setMenuOpen(false)}
-              className="block font-sans-body text-white/80 text-sm tracking-[0.2em] uppercase py-1"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const active = isNavItemActive(pathname, item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                aria-current={active ? "page" : undefined}
+                className={`block font-sans-body text-sm tracking-[0.2em] uppercase py-1 transition-colors duration-300 ${
+                  active ? "text-[#B8975A]" : "text-white/80 hover:text-[#B8975A]"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <a
             href="tel:450-612-2539"
             className="flex items-center gap-2 text-[#B8975A] font-sans-body text-sm tracking-widest uppercase mt-4"
