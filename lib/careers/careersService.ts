@@ -1,71 +1,129 @@
+import { generateApplicationPdf } from "./applicationPdf";
+import { getCareersEmailConfig } from "./email";
+import type { EmailAttachment } from "./email/types";
 import { validateCareerApplicationInput, validateResumeFile } from "./validation";
 import type {
+  CareerApplication,
   CareerApplicationInput,
-  CareerApplicationRecord,
   CareerApplicationResult,
-  UploadedResume,
 } from "./types";
 
 export { validateCareerApplicationInput, validateResumeFile } from "./validation";
 
-/**
- * Uploads a résumé file to object storage.
- *
- * TODO: Connect to Supabase Storage (or equivalent). Store the file under a
- * dedicated careers/resumes bucket and return a durable file identifier.
- */
-export async function uploadResume(file: File): Promise<UploadedResume> {
-  const validationError = validateResumeFile(file);
+function createReferenceId(): string {
+  return `SR-CA-${Date.now().toString(36).toUpperCase()}`;
+}
+
+function normalizeApplication(
+  input: CareerApplicationInput,
+  referenceId: string,
+): CareerApplication {
+  return {
+    fullName: input.fullName.trim(),
+    email: input.email.trim().toLowerCase(),
+    phone: input.phone?.trim() || null,
+    city: input.city?.trim() || null,
+    trade: input.trade,
+    experience: input.experience,
+    message: input.message?.trim() || null,
+    resumeFileName: input.resume?.name ?? null,
+    submittedAt: new Date().toISOString(),
+    referenceId,
+  };
+}
+
+function buildEmailText(application: CareerApplication): string {
+  return [
+    "New employment application — Surface Renaud Inc.",
+    "",
+    `Reference: ${application.referenceId}`,
+    `Submitted: ${application.submittedAt}`,
+    "",
+    `Name: ${application.fullName}`,
+    `Email: ${application.email}`,
+    `Phone: ${application.phone ?? "Not provided"}`,
+    `City / Region: ${application.city ?? "Not provided"}`,
+    `Trade / Position: ${application.trade}`,
+    `Experience: ${application.experience}`,
+    `Résumé: ${application.resumeFileName ?? "Not attached"}`,
+    "",
+    "Message:",
+    application.message ?? "(none)",
+    "",
+    "The formatted application PDF is attached" +
+      (application.resumeFileName
+        ? ", along with the applicant's résumé."
+        : "."),
+  ].join("\n");
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function buildEmailHtml(application: CareerApplication): string {
+  const row = (label: string, value: string) =>
+    `<tr><td style="padding:6px 0;color:#7A7774;font-size:12px;width:160px;">${escapeHtml(label)}</td><td style="padding:6px 0;color:#2C2B29;font-size:14px;">${escapeHtml(value)}</td></tr>`;
+
+  return `
+    <div style="font-family:Georgia,serif;color:#2C2B29;max-width:640px;">
+      <div style="background:#2C2B29;padding:20px 24px;">
+        <div style="color:#B8975A;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;">Surface Renaud Inc.</div>
+        <div style="color:#ffffff;font-size:22px;margin-top:6px;">Employment Application</div>
+      </div>
+      <div style="padding:24px;background:#FAFAF8;border:1px solid #EDE9E3;">
+        <p style="margin:0 0 16px;color:#7A7774;font-size:13px;">
+          Reference <strong style="color:#2C2B29;">${escapeHtml(application.referenceId)}</strong>
+        </p>
+        <table style="width:100%;border-collapse:collapse;">
+          ${row("Full Name", application.fullName)}
+          ${row("Email", application.email)}
+          ${row("Phone", application.phone ?? "Not provided")}
+          ${row("City / Region", application.city ?? "Not provided")}
+          ${row("Trade / Position", application.trade)}
+          ${row("Experience", application.experience)}
+          ${row("Résumé", application.resumeFileName ?? "Not attached")}
+        </table>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid #EDE9E3;">
+          <div style="color:#B8975A;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px;">Message</div>
+          <p style="margin:0;color:#2C2B29;font-size:14px;line-height:1.5;white-space:pre-wrap;">${escapeHtml(
+            application.message ?? "No additional message provided.",
+          )}</p>
+        </div>
+      </div>
+    </div>
+  `.trim();
+}
+
+async function resumeToAttachment(
+  resume: File,
+): Promise<EmailAttachment> {
+  const validationError = validateResumeFile(resume);
   if (validationError) {
     throw new Error(validationError);
   }
 
-  // TODO: Replace placeholder with real storage upload.
-  // Example flow:
-  //   1. Generate a unique storage key (e.g. careers/resumes/{uuid}-{fileName})
-  //   2. Upload `file` to Supabase Storage
-  //   3. Return { fileId, fileName, mimeType, sizeBytes }
-  void file;
-
+  const bytes = new Uint8Array(await resume.arrayBuffer());
   return {
-    fileId: `pending-resume-${crypto.randomUUID()}`,
-    fileName: file.name,
-    mimeType: file.type || "application/octet-stream",
-    sizeBytes: file.size,
+    filename: resume.name,
+    content: bytes,
+    contentType: resume.type || "application/octet-stream",
   };
 }
 
 /**
- * Persists a career application record.
- *
- * TODO: Insert into a careers_applications table (Supabase or other). The
- * record should reference the uploaded résumé via `resumeFileId` so the
- * binary is stored separately from the application data.
- */
-export async function createApplicationRecord(
-  record: Omit<CareerApplicationRecord, "submittedAt"> & {
-    submittedAt?: string;
-  },
-): Promise<CareerApplicationRecord> {
-  // TODO: Replace placeholder with database insert.
-  // Example columns: id, full_name, email, phone, city, trade, experience,
-  // message, resume_file_id, resume_file_name, created_at
-  const application: CareerApplicationRecord = {
-    ...record,
-    submittedAt: record.submittedAt ?? new Date().toISOString(),
-  };
-
-  return application;
-}
-
-/**
- * Submits a career application end-to-end:
+ * Submits a Careers application by email:
  *   1. Validate input
- *   2. Upload résumé (if provided) → obtain file reference
- *   3. Create application record referencing that résumé
+ *   2. Generate a formatted application PDF
+ *   3. Email the PDF (+ optional résumé) to the hiring inbox
  *
- * The UI should call this (via the API route) and never talk to storage or
- * the database directly.
+ * Email delivery goes through a swappable EmailTransport (Resend today,
+ * SMTP/SendGrid later). This is not an applicant-tracking / database flow.
  */
 export async function submitCareerApplication(
   input: CareerApplicationInput,
@@ -75,29 +133,32 @@ export async function submitCareerApplication(
     throw new Error(validationError);
   }
 
-  let resume: UploadedResume | null = null;
+  const referenceId = createReferenceId();
+  const application = normalizeApplication(input, referenceId);
+  const { hiringEmail, fromEmail, transport } = getCareersEmailConfig();
+
+  const applicationPdf = generateApplicationPdf(application);
+  const attachments: EmailAttachment[] = [
+    {
+      filename: `Surface-Renaud-Application-${referenceId}.pdf`,
+      content: applicationPdf,
+      contentType: "application/pdf",
+    },
+  ];
+
   if (input.resume) {
-    resume = await uploadResume(input.resume);
+    attachments.push(await resumeToAttachment(input.resume));
   }
 
-  const application = await createApplicationRecord({
-    fullName: input.fullName.trim(),
-    email: input.email.trim().toLowerCase(),
-    phone: input.phone?.trim() || null,
-    city: input.city?.trim() || null,
-    trade: input.trade,
-    experience: input.experience,
-    message: input.message?.trim() || null,
-    resumeFileId: resume?.fileId ?? null,
-    resumeFileName: resume?.fileName ?? null,
+  await transport.send({
+    to: hiringEmail,
+    from: fromEmail,
+    replyTo: application.email,
+    subject: `Career Application — ${application.fullName} (${application.trade}) [${referenceId}]`,
+    text: buildEmailText(application),
+    html: buildEmailHtml(application),
+    attachments,
   });
 
-  // TODO: Replace placeholder confirmation ref with the durable application ID
-  // returned by the database once Supabase (or another backend) is connected.
-  const confirmationRef = `SR-CA-${Date.now().toString(36).toUpperCase()}`;
-
-  return {
-    confirmationRef,
-    application,
-  };
+  return { referenceId };
 }

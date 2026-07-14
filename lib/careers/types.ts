@@ -13,8 +13,8 @@ export type ExperienceOption =
   | "5–10 years"
   | "10+ years";
 
-/** Fields stored on the application record (excluding the résumé binary). */
-export type CareerApplicationRecord = {
+/** Normalized application details used for PDF generation and email content. */
+export type CareerApplication = {
   fullName: string;
   email: string;
   phone: string | null;
@@ -22,10 +22,9 @@ export type CareerApplicationRecord = {
   trade: TradeOption;
   experience: ExperienceOption;
   message: string | null;
-  /** Reference to the uploaded résumé object in storage. */
-  resumeFileId: string | null;
   resumeFileName: string | null;
   submittedAt: string;
+  referenceId: string;
 };
 
 export type CareerApplicationInput = {
@@ -39,14 +38,6 @@ export type CareerApplicationInput = {
   resume: File | null;
 };
 
-export type UploadedResume = {
-  fileId: string;
-  fileName: string;
-  mimeType: string;
-  sizeBytes: number;
-};
-
 export type CareerApplicationResult = {
-  confirmationRef: string;
-  application: CareerApplicationRecord;
+  referenceId: string;
 };

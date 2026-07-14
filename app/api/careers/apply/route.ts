@@ -41,8 +41,8 @@ function parseExperience(
  * POST /api/careers/apply
  *
  * Accepts multipart form data for a career application + optional résumé.
- * Delegates persistence to `lib/careers/careersService` so storage and
- * database wiring can be swapped in later without touching the UI.
+ * Generates an application PDF and emails it (with the résumé, if any) to
+ * the Surface Renaud hiring inbox via the configured email transport.
  */
 export async function POST(request: Request) {
   try {
@@ -81,7 +81,9 @@ export async function POST(request: Request) {
     const result = await submitCareerApplication(input);
 
     return NextResponse.json({
-      confirmationRef: result.confirmationRef,
+      referenceId: result.referenceId,
+      // Back-compat for any older client still expecting confirmationRef
+      confirmationRef: result.referenceId,
     });
   } catch (error) {
     const message =

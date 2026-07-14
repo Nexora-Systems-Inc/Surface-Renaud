@@ -2,18 +2,18 @@ import Link from "next/link";
 import { CheckCircle2, ArrowLeft } from "lucide-react";
 
 type CareersSuccessProps = {
-  confirmationRef: string;
+  referenceId: string;
   applicantName?: string;
 };
 
 const nextSteps = [
-  "We receive your application and review your experience.",
-  "Your details are kept on file for upcoming opportunities.",
-  "If a position matches, we will contact you directly.",
+  "Your application is delivered directly to our hiring team by email.",
+  "We review your experience and résumé when opportunities arise.",
+  "If there is a fit, we will contact you using the details you provided.",
 ];
 
 export default function CareersSuccess({
-  confirmationRef,
+  referenceId,
   applicantName,
 }: CareersSuccessProps) {
   return (
@@ -33,8 +33,8 @@ export default function CareersSuccess({
 
         <p className="font-sans-body text-[#7A7774] text-sm leading-relaxed font-light max-w-md mx-auto mb-6">
           {applicantName
-            ? `Thank you, ${applicantName}. Your application has been received.`
-            : "Thank you. Your application has been received."}{" "}
+            ? `Thank you, ${applicantName}. Your application has been submitted.`
+            : "Thank you. Your application has been submitted."}{" "}
           We appreciate your interest in joining Surface Renaud.
         </p>
 
@@ -43,7 +43,7 @@ export default function CareersSuccess({
             Reference Number
           </span>
           <div className="font-sans-body text-[#2C2B29] text-lg tracking-wide mt-1">
-            {confirmationRef}
+            {referenceId}
           </div>
         </div>
       </div>

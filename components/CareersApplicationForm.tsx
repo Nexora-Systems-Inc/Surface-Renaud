@@ -47,7 +47,7 @@ export default function CareersApplicationForm() {
   const [fieldErrors, setFieldErrors] = useState<
     Partial<Record<keyof FormState, string>>
   >({});
-  const [confirmationRef, setConfirmationRef] = useState<string | null>(null);
+  const [referenceId, setReferenceId] = useState<string | null>(null);
   const [submittedName, setSubmittedName] = useState<string>("");
 
   const updateField = <K extends keyof FormState>(
@@ -111,18 +111,20 @@ export default function CareersApplicationForm() {
       });
 
       const data = (await response.json()) as {
+        referenceId?: string;
         confirmationRef?: string;
         error?: string;
       };
 
-      if (!response.ok || !data.confirmationRef) {
+      const nextReferenceId = data.referenceId || data.confirmationRef;
+      if (!response.ok || !nextReferenceId) {
         throw new Error(
           data.error || "Unable to submit your application. Please try again.",
         );
       }
 
       setSubmittedName(form.fullName.trim());
-      setConfirmationRef(data.confirmationRef);
+      setReferenceId(nextReferenceId);
     } catch (error) {
       setFormError(
         error instanceof Error
@@ -134,10 +136,10 @@ export default function CareersApplicationForm() {
     }
   };
 
-  if (confirmationRef) {
+  if (referenceId) {
     return (
       <CareersSuccess
-        confirmationRef={confirmationRef}
+        referenceId={referenceId}
         applicantName={submittedName}
       />
     );
