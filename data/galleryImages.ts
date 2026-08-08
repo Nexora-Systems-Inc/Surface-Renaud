@@ -71,11 +71,6 @@ export const galleryImages: LightboxImage[] = [
     alt: "Surface Renaud – terrazzo shower floor with linear drain detail",
   },
   {
-    src: "/images/gallery/terrazzo-shower-gold-hardware-full.webp",
-    thumb: "/images/gallery/terrazzo-shower-gold-hardware-full-thumb.webp",
-    alt: "Surface Renaud – full terrazzo shower with gold rainfall fixtures",
-  },
-  {
     src: "/images/gallery/custom-shower-fluted-accent-wall.webp",
     thumb: "/images/gallery/custom-shower-fluted-accent-wall-thumb.webp",
     alt: "Surface Renaud – custom shower with fluted accent wall and built-in niche",
