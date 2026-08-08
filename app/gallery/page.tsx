@@ -65,7 +65,7 @@ export default function GalleryPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-10">
             <div className="flex items-center justify-between mb-12 lg:mb-16">
               <p className="font-sans-body text-[#7A7774] text-[11px] tracking-[0.3em] uppercase">
-                {galleryImages.length} Projects
+                {galleryImages.length} Photos
               </p>
               <div className="h-px flex-1 max-w-xs ml-8 bg-[#2C2B29]/10 hidden sm:block" />
             </div>

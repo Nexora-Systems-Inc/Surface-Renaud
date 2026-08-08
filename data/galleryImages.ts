@@ -14,14 +14,6 @@ export const galleryImages: LightboxImage[] = [
     alt: "Surface Renaud – precision tile work",
   },
   {
-    src: "https://static.wixstatic.com/media/d833f9_903f894571d2403b869f4548014eb82f~mv2.jpg",
-    alt: "Surface Renaud – heated floor installation",
-  },
-  {
-    src: "https://static.wixstatic.com/media/d833f9_a0f2778e7cfe4ded8760eaab0c5058f0~mv2.jpg",
-    alt: "Surface Renaud – architectural coating",
-  },
-  {
     src: "https://static.wixstatic.com/media/d833f9_20c8e0094a134b289e3ea103c1c5f7e4~mv2.jpg",
     alt: "Surface Renaud – tile finish detail",
   },
