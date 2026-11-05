@@ -8,7 +8,6 @@
 
 @source "../app";
 @source "../components";
-@source "../node_modules/@nexora-systems-inc/planner-ui/dist";
 
 @layer base {
   :root {

@@ -53,8 +53,8 @@ export function ProjectPlannerFormDivider() {
         </span>
       </div>
       <p className="font-sans-body text-[#7A7774] text-sm font-light max-w-xl">
-        Complete the form below when you are ready. All fields marked with an
-        asterisk are required.
+        The online form is temporarily unavailable. Call or email us and our
+        team will review your project personally.
       </p>
     </div>
   );
