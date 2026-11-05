@@ -1,11 +1,8 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  transpilePackages: [
-    "@nexora-systems-inc/planner-core",
-    "@nexora-systems-inc/planner-adapters",
-    "@nexora-systems-inc/planner-ui",
-  ],
-};
+// Private @nexora-systems-inc/planner-* packages are disconnected so production
+// installs without NPM_TOKEN. Restore transpilePackages for those packages
+// when they are dependencies again.
+const nextConfig: NextConfig = {};
 
 export default nextConfig;
